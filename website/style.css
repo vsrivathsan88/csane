@@ -1,0 +1,417 @@
+:root {
+  --bg-color: #F8F8F5;
+  --text-main: #1A1A1A;
+  --text-muted: #666666;
+  --accent-orange: #FF4500;
+  --grid-color: rgba(0, 0, 0, 0.08);
+  --font-utility: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-utility);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+::selection {
+  background: var(--text-main);
+  color: var(--bg-color);
+}
+
+/* ===========================
+   GRID BACKGROUND
+   =========================== */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center center;
+}
+
+/* ===========================
+   3D CONTAINER — RIGHT SIDE
+   =========================== */
+#assembly-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+#scroll-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+}
+
+
+
+/* ===========================
+   REGISTRATION MARKS
+   =========================== */
+.registration-mark {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--text-main);
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+.registration-mark::before,
+.registration-mark::after {
+  content: '';
+  position: absolute;
+  background: var(--text-main);
+}
+
+.registration-mark::before {
+  top: 50%;
+  left: -8px;
+  right: -8px;
+  height: 1px;
+}
+
+.registration-mark::after {
+  left: 50%;
+  top: -8px;
+  bottom: -8px;
+  width: 1px;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+.hero-section {
+  position: relative;
+  max-width: 55%;
+  padding: 0 0 2rem 0;
+  margin-bottom: 4rem;
+}
+
+.main-title {
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.summary-text {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 460px;
+  margin-bottom: 1.5rem;
+}
+
+/* Identity positioning tags — orange headline style */
+.identity-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 2rem;
+}
+
+.id-tag {
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-orange);
+  opacity: 0.82;
+  line-height: 1.4;
+  transition: opacity 0.15s;
+}
+
+.id-tag:hover {
+  opacity: 1;
+}
+
+
+
+/* ===========================
+   SECTION LABELS
+   =========================== */
+.section-label {
+  margin-bottom: 1.5rem;
+}
+
+.mod-num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-orange);
+}
+
+/* ===========================
+   PROFESSIONAL EXPERIENCE
+   =========================== */
+.exp-section {
+  position: relative;
+  max-width: 55%;
+  margin-bottom: 6rem;
+}
+
+.company-block {
+  margin-bottom: 4rem;
+}
+
+.company-block:last-child {
+  margin-bottom: 0;
+}
+
+.company-header {
+  border-top: 3px solid var(--text-main);
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-name {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.company-meta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.role-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-orange);
+}
+
+/* ===========================
+   BULLET LISTS + HIGHLIGHTS
+   =========================== */
+.bullet-list {
+  list-style: none;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--grid-color);
+}
+
+.bullet-list li {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  position: relative;
+  color: var(--text-main);
+}
+
+.bullet-list li::before {
+  content: '>';
+  position: absolute;
+  left: -1.25rem;
+  color: var(--accent-orange);
+  font-weight: 700;
+}
+
+.bullet-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Highlighted metrics — the numbers that matter */
+mark {
+  background: rgba(255, 69, 0, 0.12);
+  color: var(--text-main);
+  font-weight: 700;
+  padding: 0.05rem 0.3rem;
+  border-radius: 2px;
+}
+
+/* ===========================
+   EDUCATION
+   =========================== */
+.edu-section {
+  position: relative;
+  max-width: 55%;
+  margin-bottom: 8rem;
+}
+
+.edu-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-top: 3px solid var(--text-main);
+  padding-top: 1.5rem;
+}
+
+.edu-item h3 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 0.2rem;
+}
+
+.edu-degree {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.paper {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-orange);
+  margin-top: 0.4rem;
+  border: 1px solid var(--accent-orange);
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+}
+
+/* ===========================
+   LINKEDIN BUTTON
+   =========================== */
+.linkedin-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--bg-color);
+  background: var(--text-main);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  z-index: 100;
+  transition: all 0.2s;
+}
+
+.linkedin-btn:hover {
+  background: var(--accent-orange);
+  color: var(--text-main);
+}
+
+/* ===========================
+   RESPONSIVE — Tablet
+   =========================== */
+@media (max-width: 1024px) {
+
+  .hero-section,
+  .exp-section,
+  .edu-section {
+    max-width: 100%;
+  }
+
+  /* 3D at low opacity in background — still visible */
+  #assembly-container {
+    opacity: 0.12;
+    width: 100vw;
+  }
+}
+
+/* ===========================
+   RESPONSIVE — Mobile
+   =========================== */
+@media (max-width: 640px) {
+  #scroll-container {
+    padding: 1rem 1.25rem;
+  }
+
+
+
+  .main-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-val {
+    font-size: 1.6rem;
+  }
+
+  .company-name {
+    font-size: 1.5rem;
+  }
+
+  .bullet-list {
+    padding-left: 1rem;
+  }
+
+  .bullet-list li {
+    font-size: 0.85rem;
+  }
+
+  .exp-section {
+    margin-bottom: 4rem;
+  }
+
+  .company-block {
+    margin-bottom: 3rem;
+  }
+
+  /* Keep 3D visible but ghosted */
+  #assembly-container {
+    opacity: 0.08;
+    width: 100vw;
+  }
+
+  .registration-mark {
+    display: none;
+  }
+
+  .hero-section {
+    margin-bottom: 2rem;
+  }
+}
