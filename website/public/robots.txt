@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# LLM-readable profile
+# https://llmstxt.org
+Sitemap: /llms.txt
